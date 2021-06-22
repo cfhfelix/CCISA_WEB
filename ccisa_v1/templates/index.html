@@ -1,0 +1,201 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>
+            線上報名 
+        </title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+        <script src="{{ url_for('static', filename='common/js/reCreateCaptch.js') }}"></script>
+        <script src="{{ url_for('static', filename='front/js/reCreate_index.js') }}"></script>
+        <script type="text/javascript">function cancelSelect(name) {var radioButtonArray = document.getElementsByName(name); for (var i = 0; i < radioButtonArray.length; i++) { var radioButton = radioButtonArray[i];radioButton.checked = false;}}</script>
+        
+        <script type="text/javascript">
+            function chkField(){
+                var ErrString = '';
+                
+                var Err_radio_union_pip = 0 ;
+                if(document.frm_enroll.union_pip[0].checked){ Err_radio_union_pip = Err_radio_union_pip + 1 ;}
+                if(document.frm_enroll.union_pip[1].checked){ Err_radio_union_pip = Err_radio_union_pip + 1 ;}
+                if(Err_radio_union_pip == 0){ErrString = ErrString + '【因本課程人數有限，因此須繳交保證金100元】欄位請至少選擇一個！\n';}
+                
+                var Err_radio_co_type = 0 ;
+                if(document.frm_enroll.co_type[0].checked){ Err_radio_co_type = Err_radio_co_type + 1 ;}
+                if(document.frm_enroll.co_type[1].checked){ Err_radio_co_type = Err_radio_co_type + 1 ;}
+                if(document.frm_enroll.co_type[2].checked){ Err_radio_co_type = Err_radio_co_type + 1 ;}
+                if(Err_radio_co_type == 0){ErrString = ErrString + '【報名場次】欄位請至少選擇一個！\n';}
+                if(document.frm_enroll.co.value ==''){ ErrString = ErrString + '【公司名稱】欄位不得為空白！\n';}
+                if(document.frm_enroll.name_c.value ==''){ ErrString = ErrString + '【姓名】欄位不得為空白！\n';}
+                if(document.frm_enroll.title.value ==''){ ErrString = ErrString + '【部門及職稱】欄位不得為空白！\n';}
+                if(document.frm_enroll.contact_tel_o.value ==''){ ErrString = ErrString + '【連絡電話】欄位不得為空白！\n';}
+                if(document.frm_enroll.email.value ==''){ ErrString = ErrString + '【E-mail】欄位不得為空白！\n';}
+                if(document.frm_enroll.email.value !=''){if(!validateEmail(document.frm_enroll.email.value)){ErrString = ErrString + '【E-mail】欄位輸入資料格式不正確！\n';}}
+                
+                
+                if(document.frm_enroll.txt_vCode.value ==''){ ErrString = ErrString + '【驗證欄位】欄位不得為空白！\n';}
+                
+                if(ErrString !=''){alert(ErrString);return false;}else{return true;}
+            }
+        
+        function alertError(){
+            alert("驗證碼錯誤!!!!!!!!!!!!!!!!!!!!")
+        }
+        
+        
+            </script>
+    </head><body topmargin="0" background="images/bg1.gif">
+        
+        <form name="frm_enroll" method="post" action="/" id="frm_enroll">
+            
+            <table cellpadding="5" width="760" cellspacing="0" align="center">
+                <tr>                                            
+                     <td valign="top"><img src="/images/0001.jpg" style="display:block;" width="1000"></td>                                  
+               </tr>
+                <tr>
+                    <td>
+                        
+                        
+                        <table align="center" cellspacing="0" cellpadding="4" border="1" style="border-collapse:collapse;font-family:Arial;" width="92%" borderColor="#9198AA">
+                            <tr>
+                                <td colspan="2" align="center" bgcolor="#374DA3"><font color="#FFFFFF">報名資料填寫（*為必填欄位）</font></td>
+                            </tr>
+                            <tr>
+                                <td align="right" width="28%"><font color="red">*</font>因本課程人數有限，因此須繳交保證金100元：</td>
+                                <td align="left"><table>
+                                    <tr>
+                                        <td><input type="radio" id="union_pip" name="union_pip" value="a01" />同意 </td>
+                                        <td colspan="2"><input type="radio" id="union_pip" name="union_pip" value="a02" />不同意 </td>
+                                    </tr>
+                                </table>
+                                <input type="button" value="取消選擇" onclick="javascript:cancelSelect('union_pip');" /></td>
+                            </tr>
+                            <tr>
+                                <td align="right" width="28%"><font color="red">*</font>報名場次：</td>
+                                <td align="left">
+                                    <table>
+                                        <tr>
+                                            <td><input type="radio" id="co_type" name="co_type" value="a01"  {{a01_disabled}}/>10/12(一)高雄場
+                                            </td>
+                                            <td><input type="radio" id="co_type" name="co_type" value="a02"  {{a02_disabled}}/>10/16(五)台北場
+                                            </td>
+                                            
+                                              
+                                    </table>
+                                    <input type="button" value="取消選擇" onclick="javascript:cancelSelect('co_type');" /></td>
+                            </tr>
+                            <tr>
+                                <td align="right" width="28%"><font color="red">*</font>公司名稱：</td>
+                                <td align="left"><input name="co" type="text" id="co" maxlength="20" style="width:180px;" class="txtbox" value="" /></td>
+                            </tr>
+                            <tr>
+                                <td align="right" width="28%"><font color="red">*</font>姓名：</td>
+                                <td align="left"><input name="name_c" type="text" id="name_c" maxlength="20" style="width:90px;" class="txtbox" value="" /></td>
+                            </tr>
+                            <tr>
+                                <td align="right" width="28%"><font color="red">*</font>部門及職稱：</td>
+                                <td align="left"><input name="title" type="text" id="title" maxlength="15" style="width:60px;" class="txtbox" value="" /></td>
+                            </tr>
+                            <tr>
+                                <td align="right" width="28%"><font color="red">*</font>連絡電話：</td>
+                                <td align="left"><input name="contact_tel_o" type="text" id="contact_tel_o" maxlength="15" style="width:150px;" class="txtbox" value="" /></td>
+                            </tr>
+                            <tr>
+                                <td align="right" width="28%"><font color="red">*</font>E-mail：</td>
+                                <td align="left"><input name="email" type="text" id="email" maxlength="80" style="width:210px;" class="txtbox" value="" /></td>
+                            </tr>
+                            <tr>
+                                
+                                <td align="center" valign="bottom" colspan="2"><table><tr><td><font color="red">{{info}} *</font>驗證欄位：</td><td><input name="txt_vCode" type="text" maxlength="5" id="txt_vCode" class="txtbox" /></td><td>
+                                    <table>
+                                        <tr>
+                                            <td>
+                                                <div id="VC_Code_UpdatePanel1">
+         
+                                                    <span class="input-group-addon captcha-addon">
+                                                        <img id="captcha-img" class="captcha-img" src=" {{ url_for('verify' ) }}" border="0" />
+                                                    </span>
+                                                </div>
+                                            </td>
+                                            
+                                        </tr>
+                                    </table></td></tr></table></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" style="background-image:url('images/bg1.gif');"></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" style="background-color:#eef5f5;padding:10px;"><table width="100%"><tr><td><pipagreement><div style="margin: 0px auto;text-align:center;">中華民國資訊安全學會</div>
+                                    <div style="margin: 0px auto;text-align:center;">個人資料蒐集、處理及利用同意書</div>
+                                    <div style="letter-spacing: 1px;padding:10px;">
+                                        蒐集個人資料告知事項：
+                                        經濟部工業局(以下簡稱本局)委託(計畫執行單位)中華民國資訊安全學會，執行(計畫名稱) 資安人才培訓及國際推展計畫-資安人才培育框架，為遵守個人資料保護法規定，在您提供個人資料予本局前，依法告知下列事項：</div>
+                                    <div style="letter-spacing: 1px;padding-left:10px;">
+                                        <p style="margin-left:35px; text-indent:-34px;">
+                                            一、	本局或本局授權之專案管理單位，因【執行 2020 App開發教育訓練相關業務。】<br>
+                                            而獲取您下列個人資料類別：【姓名、聯絡方式(如電話號碼、職稱、電子信箱、居住或工作地址等)、身分證統一編號、個人描述(如出生年月日)、專業技術執照，或其他得以直接或間接識別您個人之資料。】<br>
+                                            或其他得以直接或間接識別您個人之資料。(前述特定目的與個資類別，請參照《法務部個人資料保護法之特定目的及個人資料類別》依實填列。) 
+                                        </p>
+                                        <p style="margin-left:35px; text-indent:-34px;">
+                                            二、本局將依個人資料保護法及相關法令之規定下，依本局隱私權保護政策，蒐集、處理及利用您的個人資料。
+                                        </p>
+                                        <p style="margin-left:35px; text-indent:-34px;">
+                                            三、本局將於蒐集目的之存續期間合理利用您的個人資料。
+                                        </p>
+                                        <p style="margin-left:35px; text-indent:-34px;">
+                                            四、除蒐集之目的涉及國際業務或活動外，本局僅於中華民國領域內利用您的個人資料。
+                                        </p>
+                                        <p style="margin-left:35px; text-indent:-34px;">
+                                            五、本局將於原蒐集之特定目的、本次以外之產業之推廣、宣導及輔導、以及其他公務機關請求行政協助之目的範圍內，合理利用您的個人資料。
+                                        </p>
+                                        <p style="margin-left:35px; text-indent:-34px;"> 
+                                            六、您可依個人資料保護法第3條規定，就您的個人資料向本局或本局授權之專案管理單位（聯絡管道：ccisapa01@gmail.com），行使之下列權利：
+                                                <p style="margin-left:75px; text-indent:10px;">
+                                                (一)查詢或請求閱覽。
+                                                (二)請求製給複製本。
+                                                (三)請求補充或更正。
+                                                (四)請求停止蒐集、處理及利用。
+                                                (五)請求刪除。
+                                                
+                                                </p>                                      
+                                        </p>
+                                        <p style="margin-left: 35px; text-indent: -34px;">依個人資料保護法第14條規定，本局得酌收行政作業費用。<p>      
+                                        <p style="margin-left:35px; text-indent:-34px;">                                            七、若您未提供正確之個人資料，本局或本局授權之專案管理單位將無法為您提供特定目的之相關業務。                                                                                       </p>                                              <p style="margin-left:35px; text-indent:-34px;">                                                     八、本局因業務需要而委託其他機關處理您的個人資料時，將善盡監督之責。                                                                             </p>                                               <p style="margin-left:35px; text-indent:-34px;">                                                                       九、您瞭解此一同意書符合個人資料保護法及相關法規之要求，且同意本局留存此同意書，供日後取出查驗。
+                                        </p>    
+
+                                    </div>
+                                    <div style="letter-spacing: 1px;padding:10px;">
+                                        <p style="margin: 0px auto;text-align:center;">個人資料之同意提供：</p>
+                                        <p style="margin-left:35px; text-indent:-34px;">
+                                            一、本人已充分知悉貴局上述告知事項。
+                                        </p>
+                                        <p style="margin-left:35px; text-indent:-34px;">
+                                            二、本人同意貴局或貴局授權之專案管理單位，蒐集、處理、利用本人之個人資料，以及其他公務機關請求行政協助目的之提供。
+                                        </p>
+                                    </div>
+                                </pipagreement></td></tr><tr><td align="center" style="padding:5px"><input type="radio" id="agree" name="agree" value="Y" onclick="javascript:document.getElementById('btn_submit').disabled = '';" /><label for="agree">同意</label>　<input type="radio" id="nagree" name="agree" value="N" checked onclick="javascript:document.getElementById('btn_submit').disabled = 'disabled';" /><label for="nagree">不同意</label>　</td></tr></table></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" style="background-image:url('images/bg1.gif');"></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" align="center" style="padding:10px;"><input type="submit" name="btn_submit" value="確認報名" id="btn_submit" disabled="disabled" class="txtbox" onclick="javascript:if(!chkField()){return false;}" />  </td>
+                            </tr>
+                        </table>
+                        
+                    </td>
+                </tr>
+            </table>
+            
+            
+            <script type="text/javascript">
+                //<![CDATA[
+                
+                //]]>
+                </script>
+        </form>
+    </body>
+</html>

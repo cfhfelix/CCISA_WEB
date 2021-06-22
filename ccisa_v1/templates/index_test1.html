@@ -1,0 +1,298 @@
+﻿
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>
+            線上報名 - 測試
+        </title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+        <script src="{{ url_for('static', filename='common/js/reCreateCaptch.js') }}"></script>
+        <script src="{{ url_for('static', filename='front/js/reCreate_index.js') }}"></script>
+        <script type="text/javascript">function cancelSelect(name) {var radioButtonArray = document.getElementsByName(name); for (var i = 0; i < radioButtonArray.length; i++) { var radioButton = radioButtonArray[i];radioButton.checked = false;}}</script>
+        
+        <script type="text/javascript">
+            function chkField(){
+                var ErrString = '';
+                
+                var Err_radio_union_pip = 0 ;
+                if(document.frm_enroll.union_pip[0].checked){ Err_radio_union_pip = Err_radio_union_pip + 1 ;}
+                if(document.frm_enroll.union_pip[1].checked){ Err_radio_union_pip = Err_radio_union_pip + 1 ;}
+                if(Err_radio_union_pip == 0){ErrString = ErrString + '【同意接收計畫執行單位提供之其他活動訊息】欄位請至少選擇一個！\n';}
+                
+                var Err_radio_co_type = 0 ;
+                if(document.frm_enroll.co_type[0].checked){ Err_radio_co_type = Err_radio_co_type + 1 ;}
+                if(document.frm_enroll.co_type[1].checked){ Err_radio_co_type = Err_radio_co_type + 1 ;}
+                if(document.frm_enroll.co_type[2].checked){ Err_radio_co_type = Err_radio_co_type + 1 ;}
+                if(Err_radio_co_type == 0){ErrString = ErrString + '【報名場次】欄位請至少選擇一個！\n';}
+                if(document.frm_enroll.co.value ==''){ ErrString = ErrString + '【公司名稱】欄位不得為空白！\n';}
+                if(document.frm_enroll.name_c.value ==''){ ErrString = ErrString + '【姓名】欄位不得為空白！\n';}
+                if(document.frm_enroll.title.value ==''){ ErrString = ErrString + '【部門及職稱】欄位不得為空白！\n';}
+                if(document.frm_enroll.contact_tel_o.value ==''){ ErrString = ErrString + '【連絡電話】欄位不得為空白！\n';}
+                if(document.frm_enroll.email.value ==''){ ErrString = ErrString + '【E-mail】欄位不得為空白！\n';}
+                if(document.frm_enroll.email.value !=''){if(!validateEmail(document.frm_enroll.email.value)){ErrString = ErrString + '【E-mail】欄位輸入資料格式不正確！\n';}}
+                
+                
+                if(document.frm_enroll.txt_vCode.value ==''){ ErrString = ErrString + '【驗證欄位】欄位不得為空白！\n';}
+                
+                if(ErrString !=''){alert(ErrString);return false;}else{return true;}
+            }
+        
+        function OpenCancelWindows() {
+            // window.open('https://seminars.tca.org.tw/ReflectEventsStatement.aspx?type=C&eid=D15e02758&seminarname=', '活動服務申請', 'height=500px,width=500px,,toolbar=no,status=no,resizeable=yes,scrollbars=yes');
+        }
+        function OpenReflectWindows() {
+            // window.open('https://seminars.tca.org.tw/ReflectEventsStatement.aspx?type=R&eid=D15e02758', '個資不當使用回報', 'height=500px,width=500px,,toolbar=no,status=no,resizeable=yes,scrollbars=yes');
+        }
+        
+        function openUnionPip() {
+            // window.open('https://seminars.tca.org.tw/union_pip.aspx?eid=D15e02758', '公會版個資聲明書', 'height=500px,width=500px,,toolbar=no,status=no,resizeable=yes,scrollbars=yes');
+        }
+        function alertError(){
+            alert("驗證碼錯誤!!!!!!!!!!!!!!!!!!!!")
+        }
+        
+        
+            </script>
+    </head><body topmargin="0" background="images/bg1.gif">
+        
+        <form name="frm_enroll" method="post" action="/" id="frm_enroll">
+            
+            <table cellpadding="5" width="760" cellspacing="0" align="center">
+                <tr>
+                    <td>
+                        <contenttext>
+                            
+                            <table width="810" border="0" align="center" cellpadding="5" cellspacing="0">
+                                <tr>
+                                    <td bgcolor="#FFFFFF"><table width="800" border="0" align="center" cellpadding="0" cellspacing="0">
+                                        <tr>
+                                            <td valign="top"><img src="/images/S__39116835.jpg" style="display:block;"></td>
+                                        </tr>
+                                        
+                                        <tr>
+                                            <td valign="top" bgcolor="#F0C608"><table width="90%" border="0" align="center" cellpadding="3" cellspacing="2" bordercolor="#ffffff" style=" font-size:16px; font-family: Microsoft JhengHei,Arial; line-height:1.6em; ">
+                                                <tr>
+                                                    <td width="98" align="center" bgcolor="#CC6600" style=" color:#fff; font-weight:bold;">時間</td>
+                                                    <td colspan="2" align="center" bgcolor="#CC6600" style=" color:#fff; font-weight:bold;">內容</td>
+                                                    <td width="272" align="center" bgcolor="#CC6600" style=" color:#fff; font-weight:bold;">主講人</td>
+                                                </tr>
+                                                <tr>
+                                                    <td align="center" bgcolor="#FFFFCC">9:00~9:30</td>
+                                                    <td colspan="3" align="center" bgcolor="#FFFFCC">上午場報到</td>
+                                                </tr>
+                                                <tr>
+                                                    <td align="center" bgcolor="#FFFFFF">9:30~9:35  </td>
+                                                    <td colspan="2" align="center" bgcolor="#FFFFFF">致詞</td>
+                                                    <td bgcolor="#FFFFFF">行動應用資安聯盟 代表 </td>
+                                                </tr>
+                                                <tr>
+                                                    <td align="center" bgcolor="#FFFFFF">9:35~12:00 </td>
+                                                    <td colspan="2" align="center" bgcolor="#FFFFFF"><strong>如何開發符合檢測規範的App</strong></td>
+                                                    <td bgcolor="#FFFFFF">財團法人全國認證基金會(TAF)認可<br>
+                                                        實驗室講師群 </td>
+                                                </tr>
+                                                <tr>
+                                                    <td align="center" bgcolor="#FFFFCC">12:00~ </td>
+                                                    <td colspan="3" align="center" bgcolor="#FFFFCC">上午場結束</td>
+                                                </tr>
+                                                <tr>
+                                                    <td align="center" bgcolor="#FFFFCC">12:00~13:30</td>
+                                                    <td colspan="3" align="center" bgcolor="#FFFFCC">換場</td>
+                                                </tr>
+                                                <tr>
+                                                    <td align="center" bgcolor="#FFFFCC">13:30~14:00  </td>
+                                                    <td colspan="3" align="center" bgcolor="#FFFFCC">下午場報到</td>
+                                                </tr>
+                                                <tr>
+                                                    <td align="center" bgcolor="#FFFFFF">14:00~15:30 </td>
+                                                    <td width="126" rowspan="3" align="center" bgcolor="#FFFFFF">App開發之自我<br>
+                                                        檢測技術分享</td>
+                                                    <td width="191" bgcolor="#FFFFFF"><strong>App開發階段，如何利用<br>
+                                                        動態分析及靜態自我檢測<br>
+                                                        方式，來強化資安防禦<br>
+                                                        －iOS系統 </strong></td>
+                                                    <td bgcolor="#FFFFFF">財團法人全國認證基金會(TAF)認可<br>
+                                                        實驗室講師群 </td>
+                                                </tr>
+                                                <tr>
+                                                    <td align="center" bgcolor="#FFFFCC">15:30~15:40 </td>
+                                                    <td colspan="2" align="center" bgcolor="#FFFFCC">中場休息</td>
+                                                </tr>
+                                                <tr>
+                                                    <td align="center" bgcolor="#FFFFFF">15:40~17:00 </td>
+                                                    <td bgcolor="#FFFFFF"><strong>App開發階段，如何利用<br>
+                                                        動態分析及靜態自我檢測<br>
+                                                        方式，來強化資安防禦<br>
+                                                        －Android系統 </strong></td>
+                                                    <td bgcolor="#FFFFFF">財團法人全國認證基金會(TAF)認可<br>
+                                                        實驗室講師群 </td>
+                                                </tr>
+                                                <tr>
+                                                    <td align="center" bgcolor="#FFFFCC">17:00~</td>
+                                                    <td colspan="3" align="center" bgcolor="#FFFFCC">下午場結束</td>
+                                                </tr>
+                                            </table>
+                                            　　　※主辦單位保留議程及講師變更之權利，若造成任何不便，懇請見諒！<p>
+                                            <div style=" margin:0 20px;">
+                                                <p>■&nbsp;	備註：因應COVID-19防疫措施，參加本研習會請配合實聯制入場，以事先線上登記方式參加，並敬請配<br>
+                                                　　　　合以下事項，若無法配合者主辦單位有權拒絕入場。</p>
+                                                <ul type="circle">
+                                                    <li>僅接受網路報名成功者入場，不開放現場報名或候補。</li>
+                                                    <li> 請配合詳實填寫入場者姓名、聯絡電話等資料（資料為配合必要疫調為收集目的，資料利用之期間自蒐集日起 28 日內）</li>
+                                                    <li> 參加者入場前敬請配合工作人員進行量測額溫、手部酒精消毒清潔等防疫措施，額溫高於攝氏37.5度，或無配戴口罩者謝絕入場。</li>
+                                                    <li> 會場外無法保持室內1.5公尺時，請自行攜帶並配戴口罩，會場內請務必全程配戴口罩。          </li>
+                                                </ul>
+                                            </div></td>
+                                        </tr>
+                                        <tr>
+                                            <td valign="top"><img src="https://seminars.tca.org.tw/edm_img/D15e02758/images/edm_foot1.gif" border="0" style="display:block;"></td>
+                                        </tr>
+                                        <tr>
+                                            <td valign="top"><a href="mailto:pt915@mail.tca.org.tw;chris_wang@mail.tca.org.tw"><img src="https://seminars.tca.org.tw/edm_img/D15e02758/images/edm_foot21.gif" border="0" style="display:inline-block;"></a><img src="https://seminars.tca.org.tw/edm_img/D15e02758/images/edm_foot22.gif" border="0" style="display:inline-block;"></td>
+                                        </tr>
+                                        <tr>
+                                            <td valign="top"><img src="https://seminars.tca.org.tw/edm_img/D15e02758/images/edm_foot3.gif" border="0" style="display:block;"></td>
+                                        </tr>
+                                    </table></td>
+                                </tr>
+                            </table>
+                            
+                            
+                        </contenttext>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        
+                        
+                        <table align="center" cellspacing="0" cellpadding="4" border="1" style="border-collapse:collapse;font-family:Arial;" width="92%" borderColor="#9198AA">
+                            <tr>
+                                <td colspan="2" align="center" bgcolor="#374DA3"><font color="#FFFFFF">報名資料填寫（*為必填欄位）</font></td>
+                            </tr>
+                            <tr>
+                                <td align="right" width="28%"><font color="red">*</font>同意接收計畫執行單位提供之其他活動訊息：</td>
+                                <td align="left"> <font color="#FF6666" size="2"><a href='javascript:openUnionPip();'>相關規範請參考台北市電腦商業同業公會蒐集個人資料告知事項</a></font><br><table>
+                                    <tr>
+                                        <td><input type="radio" id="union_pip" name="union_pip" value="a01" />同意 </td>
+                                        <td colspan="2"><input type="radio" id="union_pip" name="union_pip" value="a02" />不同意 </td>
+                                    </tr>
+                                </table>
+                                <input type="button" value="取消選擇" onclick="javascript:cancelSelect('union_pip');" /></td>
+                            </tr>
+                            <tr>
+                                <td align="right" width="28%"><font color="red">*</font>報名場次：</td>
+                                <td align="left">
+                                    <table>
+                                        <tr>
+                                            <td><input type="radio" id="co_type" name="co_type" value="a01"  {{a01_disabled}}/>上午場
+                                            </td>
+                                            <td><input type="radio" id="co_type" name="co_type" value="a02"  {{a02_disabled}}/>下午場
+                                            </td>
+                                            
+                                            <td><input type="radio" id="co_type" name="co_type" value="a03" {{a03_disabled}}/>整天
+                                                </tr>
+                                              
+                                    </table>
+                                    <input type="button" value="取消選擇" onclick="javascript:cancelSelect('co_type');" /></td>
+                            </tr>
+                            <tr>
+                                <td align="right" width="28%"><font color="red">*</font>公司名稱：</td>
+                                <td align="left"><input name="co" type="text" id="co" maxlength="20" style="width:180px;" class="txtbox" value="" /></td>
+                            </tr>
+                            <tr>
+                                <td align="right" width="28%"><font color="red">*</font>姓名：</td>
+                                <td align="left"><input name="name_c" type="text" id="name_c" maxlength="20" style="width:90px;" class="txtbox" value="" /></td>
+                            </tr>
+                            <tr>
+                                <td align="right" width="28%"><font color="red">*</font>部門及職稱：</td>
+                                <td align="left"><input name="title" type="text" id="title" maxlength="15" style="width:60px;" class="txtbox" value="" /></td>
+                            </tr>
+                            <tr>
+                                <td align="right" width="28%"><font color="red">*</font>連絡電話：</td>
+                                <td align="left"><input name="contact_tel_o" type="text" id="contact_tel_o" maxlength="15" style="width:150px;" class="txtbox" value="" /></td>
+                            </tr>
+                            <tr>
+                                <td align="right" width="28%"><font color="red">*</font>E-mail：</td>
+                                <td align="left"><input name="email" type="text" id="email" maxlength="80" style="width:210px;" class="txtbox" value="" /></td>
+                            </tr>
+                            <tr>
+                                
+                                <td align="center" valign="bottom" colspan="2"><table><tr><td><font color="red">{{msg_verify_error}} *</font>驗證欄位：</td><td><input name="txt_vCode" type="text" maxlength="5" id="txt_vCode" class="txtbox" /></td><td>
+                                    <table>
+                                        <tr>
+                                            <td>
+                                                <div id="VC_Code_UpdatePanel1">
+         
+                                                    <span class="input-group-addon captcha-addon">
+                                                        <img id="captcha-img" class="captcha-img" src=" {{ url_for('verify' ) }}" border="0" />
+                                                    </span>
+                                                </div>
+                                            </td>
+                                            
+                                        </tr>
+                                    </table></td></tr></table></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" style="background-image:url('images/bg1.gif');"></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" style="background-color:#eef5f5;padding:10px;"><table width="100%"><tr><td><pipagreement><div style="margin: 0px auto;text-align:center;">財團法人資訊工業策進會</div>
+                                    <div style="margin: 0px auto;text-align:center;">蒐集個人資料告知事項暨個人資料提供同意書</div>
+                                    <div style="letter-spacing: 1px;padding:10px;">財團法人資訊工業策進會 委託計畫執行單位-台北市電腦商業同業公會辦理 資安產業環境建構與產業標準推動計畫 (以下簡稱本計畫)，因應個人資料保護法及相關個人資料保護規定，在向您蒐集個人資料之前，依法向您告知下列事項，當您勾選「我同意」，表示您已閱讀、瞭解並同意接受本同意書之所有內容：</div>
+                                    <div style="letter-spacing: 1px;padding-left:10px;">
+                                        <p style="margin-left:35px; text-indent:-34px;">
+                                        一、蒐集目的及類別<br>
+                                        為本計畫相關 報名作業管理、通知聯繫 之蒐集目的，而須獲取您下列個人資料類別：單位名稱、姓名、電話、E-mail。
+                                        </p>
+                                        <p style="margin-left:35px; text-indent:-34px;">
+                                        二、個人資料利用之期間、地區、對象及方式<br>
+                                        您的個人資料，除涉及國際業務或活動外，將提供本機關(構)於中華民國領域，於上述蒐集目的之必要合理範圍內加以利用至前述蒐集目的消失為止。
+                                        </p>
+                                        <p style="margin-left:35px; text-indent:-34px;">
+                                        三、當事人權利行使<br>
+                                        依據個人資料保護法第3條，您可向計畫執行單位請求查詢或閱覽、製給複製本、補充或更正、停止蒐集/處理/利用或刪除您的個人資料。
+                                        </p>
+                                        <p style="margin-left:35px; text-indent:-34px;">
+                                        四、不提供個人資料之權益影響<br>
+                                        如您不提供或未提供正確之個人資料，或要求停止蒐集/處理/利用/刪除個人資料、服務訊息的取消訂閱，本機關(構)將無法為您提供蒐集目的之相關服務。
+                                        </p>
+                                        <p style="margin-left:35px; text-indent:-34px;">
+                                        五、各項通知服務、相關訊息之停止寄送，可透過訊息內容提供之取消訂閱連結通知。您可於上班時間聯繫計畫執行單位活動承辦人（電話(02)2577-4249，分機：923；或<a href="javascript:OpenCancelWindows();">請按這裡</a>）。就違反本個資聲明之行為，<a href="javascript:OpenReflectWindows();">請按這裡反映</a>。
+                                        </p>
+                                    </div>
+                                    <div style="letter-spacing: 1px;padding:10px;">
+                                        <p style="margin: 0px auto;text-align:center;">個人資料同意提供：</p>
+                                        <p style="margin-left:35px; text-indent:-34px;">
+                                        一、本人確已閱讀並瞭解上述告知事項，並勾選「我同意」授權貴機關(構)於所列目的之必要合理範圍內，蒐集、處理及利用本人之個人資料。
+                                        </p>
+                                        <p style="margin-left:35px; text-indent:-34px;">
+                                        二、本人瞭解此同意書符合個人資料保護法及相關法規之要求，並同意提供予貴機關(構)留存及日後查證使用。
+                                        </p>
+                                    </div>
+                                </pipagreement></td></tr><tr><td align="center" style="padding:5px"><input type="radio" id="agree" name="agree" value="Y" onclick="javascript:document.getElementById('btn_submit').disabled = '';" /><label for="agree">我同意</label>　<input type="radio" id="nagree" name="agree" value="N" checked onclick="javascript:document.getElementById('btn_submit').disabled = 'disabled';" /><label for="nagree">我不同意</label>　</td></tr></table></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" style="background-image:url('images/bg1.gif');"></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" align="center" style="padding:10px;"><input type="submit" name="btn_submit" value="確認報名" id="btn_submit" disabled="disabled" class="txtbox" onclick="javascript:if(!chkField()){return false;}" />  </td>
+                            </tr>
+                        </table>
+                        
+                    </td>
+                </tr>
+            </table>
+            
+            
+            <script type="text/javascript">
+                //<![CDATA[
+                
+                //]]>
+                </script>
+        </form>
+    </body>
+</html>

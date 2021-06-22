@@ -1,0 +1,26 @@
+<!-- tempaltes/index.html -->
+
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}Form Validation{% endblock %}
+
+{% block page_content %}
+<div class="page-header">
+    <h1>Hello, {% if formData['username'] %}{{ formData['username'] }}{% else %}Stranger{% endif %}!</h1>
+    {% if formData['username'] %}
+    <ul>
+        <li>username: {{formData['username']}}</li>
+        <li>password: {{formData['password']}}</li>
+        <li>email: {{formData['email']}}</li>
+        <li>url: {{formData['url']}}</li>
+        <li>age: {{formData['age']}}</li>
+        <li>hour: {{formData['hour']}}</li>
+        <li>mobile: {{formData['mobile']}}</li>
+        <li>date: {{formData['date']}}</li>
+        <li>language: {{formData['language']}}</li>
+    </ul>
+    {% endif %}
+</div>
+{{ wtf.quick_form(form, novalidate=True, form_type="horizontal", horizontal_columns=("sm",2,10)) }}
+{% endblock %}
